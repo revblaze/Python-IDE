@@ -13,6 +13,7 @@
 		4D832C231C16864D00913CE7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D832C211C16864D00913CE7 /* Main.storyboard */; };
 		4D832C251C16864D00913CE7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D832C241C16864D00913CE7 /* Assets.xcassets */; };
 		4D832C281C16864D00913CE7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D832C261C16864D00913CE7 /* LaunchScreen.storyboard */; };
+		4D832C411C169B0100913CE7 /* BuildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D832C401C169B0100913CE7 /* BuildViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		4D832C241C16864D00913CE7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4D832C271C16864D00913CE7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4D832C291C16864D00913CE7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4D832C3F1C169B0100913CE7 /* BuildViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuildViewController.h; sourceTree = "<group>"; };
+		4D832C401C169B0100913CE7 /* BuildViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuildViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +65,8 @@
 				4D832C1C1C16864D00913CE7 /* AppDelegate.m */,
 				4D832C1E1C16864D00913CE7 /* ViewController.h */,
 				4D832C1F1C16864D00913CE7 /* ViewController.m */,
+				4D832C3F1C169B0100913CE7 /* BuildViewController.h */,
+				4D832C401C169B0100913CE7 /* BuildViewController.m */,
 				4D832C211C16864D00913CE7 /* Main.storyboard */,
 				4D832C241C16864D00913CE7 /* Assets.xcassets */,
 				4D832C261C16864D00913CE7 /* LaunchScreen.storyboard */,
@@ -150,6 +155,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D832C411C169B0100913CE7 /* BuildViewController.m in Sources */,
 				4D832C201C16864D00913CE7 /* ViewController.m in Sources */,
 				4D832C1D1C16864D00913CE7 /* AppDelegate.m in Sources */,
 				4D832C1A1C16864D00913CE7 /* main.m in Sources */,
@@ -264,9 +270,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Python IDE/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.revblaze.Python-IDE";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -277,9 +284,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Python IDE/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.revblaze.Python-IDE";
 				PRODUCT_NAME = "$(TARGET_NAME)";
