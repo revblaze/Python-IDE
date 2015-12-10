@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D30913E1C193F0F005CBDF5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D30913D1C193F0F005CBDF5 /* CoreGraphics.framework */; };
+		4D3091401C193F25005CBDF5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D30913F1C193F25005CBDF5 /* Foundation.framework */; };
+		4D3091421C193F38005CBDF5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D3091411C193F38005CBDF5 /* UIKit.framework */; };
 		4D832C1A1C16864D00913CE7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D832C191C16864D00913CE7 /* main.m */; };
 		4D832C1D1C16864D00913CE7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D832C1C1C16864D00913CE7 /* AppDelegate.m */; };
 		4D832C201C16864D00913CE7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D832C1F1C16864D00913CE7 /* ViewController.m */; };
@@ -17,6 +20,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4D30913D1C193F0F005CBDF5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		4D30913F1C193F25005CBDF5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		4D3091411C193F38005CBDF5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		4D832C151C16864D00913CE7 /* Python IDE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Python IDE.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D832C191C16864D00913CE7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4D832C1B1C16864D00913CE7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -36,6 +42,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D30913E1C193F0F005CBDF5 /* CoreGraphics.framework in Frameworks */,
+				4D3091401C193F25005CBDF5 /* Foundation.framework in Frameworks */,
+				4D3091421C193F38005CBDF5 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,6 +89,9 @@
 			isa = PBXGroup;
 			children = (
 				4D832C191C16864D00913CE7 /* main.m */,
+				4D30913D1C193F0F005CBDF5 /* CoreGraphics.framework */,
+				4D30913F1C193F25005CBDF5 /* Foundation.framework */,
+				4D3091411C193F38005CBDF5 /* UIKit.framework */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -313,6 +325,7 @@
 				4D832C2E1C16864D00913CE7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
