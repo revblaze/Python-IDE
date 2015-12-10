@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9527.1" systemVersion="15C48a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="o1D-m9-xwk">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="o1D-m9-xwk">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9525.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
         <!--Python IDE-->
@@ -40,6 +40,9 @@
                     <navigationItem key="navigationItem" title="Python IDE" id="1Uy-id-0bB">
                         <barButtonItem key="rightBarButtonItem" systemItem="play" id="trY-8o-hSA">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <segue destination="4G2-vQ-pTb" kind="show" id="4Pe-Xh-SC1"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -49,6 +52,41 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1036" y="-307"/>
+        </scene>
+        <!--Build View Controller-->
+        <scene sceneID="dhl-QS-6Dh">
+            <objects>
+                <viewController id="4G2-vQ-pTb" customClass="BuildViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="efy-v6-znk"/>
+                        <viewControllerLayoutGuide type="bottom" id="Hog-uN-gI1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Z6z-G3-aA3">
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="r9I-It-yql">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="r9I-It-yql" firstAttribute="top" secondItem="efy-v6-znk" secondAttribute="bottom" id="0c4-Lf-Vhb"/>
+                            <constraint firstAttribute="trailing" secondItem="r9I-It-yql" secondAttribute="trailing" id="QBu-S8-VYG"/>
+                            <constraint firstItem="Hog-uN-gI1" firstAttribute="top" secondItem="r9I-It-yql" secondAttribute="bottom" id="ZTn-6y-BGm"/>
+                            <constraint firstItem="r9I-It-yql" firstAttribute="leading" secondItem="Z6z-G3-aA3" secondAttribute="leading" id="nCy-OG-HCj"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="consoleView" destination="r9I-It-yql" id="55d-8S-AM3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g0V-nP-MNb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1751" y="-307"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Dee-Iz-FJP">
@@ -75,4 +113,5 @@
             <point key="canvasLocation" x="325" y="-307"/>
         </scene>
     </scenes>
+    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>

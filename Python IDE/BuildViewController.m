@@ -14,9 +14,12 @@
 
 @implementation BuildViewController
 
+@synthesize codeString, consoleView;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    consoleView.text = codeString;
 }
 
 - (void)didReceiveMemoryWarning {

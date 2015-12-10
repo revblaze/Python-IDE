@@ -96,8 +96,13 @@
     NSLog(@"Created Code.txt");
 }
 
-- (void)dealloc{
+- (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidEnterBackgroundNotification object:nil];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    BuildViewController *buildView = [segue destinationViewController];
+    buildView.codeString = textView.text;
 }
 
 - (void)didReceiveMemoryWarning {
