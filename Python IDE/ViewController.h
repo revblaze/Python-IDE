@@ -8,12 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
+#import "EditorView.h"
 #import "BuildViewController.h"
 
 @interface ViewController : UIViewController <UITextViewDelegate>
 
 @property (nonatomic, strong) NSString *codeString;
-@property (nonatomic, retain) IBOutlet UITextView *textView;
+@property (assign, nonatomic) IBOutlet EditorView *editorView;
 @property (nonatomic, retain) BuildViewController *buildViewController;
 
 - (void)saveFile;

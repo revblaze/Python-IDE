@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "NSString+AttributedStringConversion.h"
 
 @interface ViewController ()
 
@@ -14,15 +15,11 @@
 
 @implementation ViewController
 
-@synthesize textView;
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(enterBackground:) name:UIApplicationDidEnterBackgroundNotification object:nil];
-    
-    textView.delegate = self;
     
     // Check if Code.txt exists
     NSString* documentsDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
@@ -43,7 +40,11 @@
         [viewController createFile];
     }
     
-    self.textView.delegate = self;
+    NSUInteger navBarHeight = CGRectGetHeight([UIApplication sharedApplication].statusBarFrame);
+    UIEdgeInsets insets = self.editorView.textView.contentInset;
+    insets.top += navBarHeight;
+    self.editorView.textView.contentInset = insets;
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -51,13 +52,16 @@
     NSString* documentsDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     NSString* codeFile = [documentsDir stringByAppendingPathComponent:@"Code.txt"];
     NSString *codeString = [NSString stringWithContentsOfFile:codeFile encoding:NSUTF8StringEncoding error:NULL];
-    textView.text = codeString;
+    NSAttributedString *formattedCode = [[NSAttributedString alloc]  initWithString:codeString];
+    self.editorView.textView.attributedText = formattedCode;
+    [self.editorView.textView setAttributedText:formattedCode];
     NSLog(@"Loaded Code.txt");
+    NSLog(@"String: %@", formattedCode);
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     // Save text to Code.txt
-    self.codeString = textView.text;
+    self.codeString = self.editorView.textView.text;
     NSString *documentsDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     NSString *codeFile = [NSString stringWithFormat:@"%@/Code.txt", documentsDir];
     [self.codeString writeToFile:codeFile
@@ -74,7 +78,7 @@
 
 - (void)saveFile {
     // Save text to Code.txt
-    self.codeString = textView.text;
+    self.codeString = self.editorView.textView.text;
     NSString *documentsDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     NSString *codeFile = [NSString stringWithFormat:@"%@/Code.txt", documentsDir];
     [self.codeString writeToFile:codeFile
@@ -102,7 +106,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     BuildViewController *buildView = [segue destinationViewController];
-    buildView.codeString = textView.text;
+    buildView.codeString = self.editorView.textView.text;
 }
 
 - (void)didReceiveMemoryWarning {

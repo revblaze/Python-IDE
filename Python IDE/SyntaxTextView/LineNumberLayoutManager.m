@@ -1,9 +1,9 @@
 //
 //  LineNumberLayoutManager.m
-//  TextKit_LineNumbers
+//  Python IDE
 //
-//  Created by Mark Alldritt on 2013-10-11.
-//  Copyright (c) 2013 Late Night Software Ltd. All rights reserved.
+//  Created by Justin Bush on 2015-12-10.
+//  Copyright © 2015 Justin Bush. All rights reserved.
 //
 
 #import "LineNumberLayoutManager.h"
@@ -89,10 +89,10 @@
 
 - (void) drawBackgroundForGlyphRange:(NSRange)glyphsToShow atPoint:(CGPoint)origin {
     [super drawBackgroundForGlyphRange:glyphsToShow atPoint:origin];
-
+    
     //  Draw line numbers.  Note that the background for line number gutter is drawn by the LineNumberTextView class.
-    NSDictionary* atts = @{NSFontAttributeName : [UIFont systemFontOfSize:10.0],
-                           NSForegroundColorAttributeName : [UIColor whiteColor]};
+    NSDictionary* atts = @{NSFontAttributeName : [UIFont fontWithName:@"DINAlternate-Bold" size:11],
+                           NSForegroundColorAttributeName : [UIColor colorWithRed:0.57 green:0.53 blue:0.53 alpha:1.0]};
     __block CGRect gutterRect = CGRectZero;
     __block NSUInteger paraNumber;
     
