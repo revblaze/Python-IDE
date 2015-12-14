@@ -40,6 +40,7 @@
         [viewController createFile];
     }
     
+    // Attempt at getting the line numbered textView to work
     NSUInteger navBarHeight = CGRectGetHeight([UIApplication sharedApplication].statusBarFrame);
     UIEdgeInsets insets = self.editorView.textView.contentInset;
     insets.top += navBarHeight;
@@ -73,6 +74,7 @@
 }
 
 - (void)enterBackground:(NSNotification *)notification{
+    // Save if user has entered background
     [self saveFile];
 }
 
@@ -90,6 +92,7 @@
 }
 
 - (void)createFile {
+    // Creates file Code.txt with print("Hello, world")
     NSString *documentsDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     NSString *codeFile = [NSString stringWithFormat:@"%@/Code.txt", documentsDir];
     NSString *codeString = @"print(\"Hello, world\")";
@@ -105,6 +108,7 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Push Code.txt content to buildView
     BuildViewController *buildView = [segue destinationViewController];
     buildView.codeString = self.editorView.textView.text;
 }
