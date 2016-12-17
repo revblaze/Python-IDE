@@ -16,7 +16,7 @@ Python IDE for iOS is a free, open source project that is my attempt at recreati
 
 ## MIT License
 
-Copyright © 2015 Justin Bush. All rights reserved.
+Copyright © 2017 Justin Bush. All rights reserved.
 
 ```
 Permission is hereby granted, free of charge, to any person obtaining a copy
