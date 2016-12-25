@@ -12,7 +12,7 @@ Python IDE for iOS is a free, open source project that is my attempt at recreati
 - We'll add more as we go
 
 ## Requirements
-- Requires iOS 7.0 or later
+- Requires iOS 8.0 or later
 
 ## MIT License
 
