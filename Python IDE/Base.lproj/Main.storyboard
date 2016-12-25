@@ -1,8 +1,12 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="o1D-m9-xwk">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="o1D-m9-xwk">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Python IDE-->
@@ -14,30 +18,39 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oRL-PQ-AJD" customClass="EditorView">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="tintColor" red="0.1176470588" green="0.45098039220000002" blue="0.67450980390000004" alpha="1" colorSpace="calibratedRGB"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oRL-PQ-AJD" customClass="EditorView">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="0.1176470588" green="0.45098039220000002" blue="0.67450980390000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="oRL-PQ-AJD" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="8rA-KK-M9u"/>
+                            <constraint firstItem="oRL-PQ-AJD" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Cxh-Ss-lEf"/>
+                            <constraint firstAttribute="trailing" secondItem="oRL-PQ-AJD" secondAttribute="trailing" id="OgE-NC-Vep"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="oRL-PQ-AJD" secondAttribute="bottom" id="xIh-rU-oFT"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Python IDE" id="1Uy-id-0bB">
                         <barButtonItem key="rightBarButtonItem" systemItem="play" id="trY-8o-hSA">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <segue destination="4G2-vQ-pTb" kind="show" id="4Pe-Xh-SC1"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="editorView" destination="oRL-PQ-AJD" id="Gy4-Vt-hiK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1041" y="-307"/>
+            <point key="canvasLocation" x="1040.8" y="-307.1964017991005"/>
         </scene>
         <!--Build View Controller-->
         <scene sceneID="dhl-QS-6Dh">
@@ -48,23 +61,23 @@
                         <viewControllerLayoutGuide type="bottom" id="Hog-uN-gI1"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Z6z-G3-aA3">
-                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="r9I-It-yql">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="tintColor" red="0.1176470588" green="0.45098039220000002" blue="0.67450980390000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="0.1176470588" green="0.45098039220000002" blue="0.67450980390000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="r9I-It-yql" firstAttribute="top" secondItem="efy-v6-znk" secondAttribute="bottom" id="0c4-Lf-Vhb"/>
-                            <constraint firstAttribute="trailing" secondItem="r9I-It-yql" secondAttribute="trailing" id="QBu-S8-VYG"/>
-                            <constraint firstItem="Hog-uN-gI1" firstAttribute="top" secondItem="r9I-It-yql" secondAttribute="bottom" id="ZTn-6y-BGm"/>
-                            <constraint firstItem="r9I-It-yql" firstAttribute="leading" secondItem="Z6z-G3-aA3" secondAttribute="leading" id="nCy-OG-HCj"/>
+                            <constraint firstItem="r9I-It-yql" firstAttribute="leading" secondItem="Z6z-G3-aA3" secondAttribute="leading" id="3DV-Q1-bVM"/>
+                            <constraint firstItem="r9I-It-yql" firstAttribute="top" secondItem="efy-v6-znk" secondAttribute="bottom" id="fPa-5K-Ara"/>
+                            <constraint firstAttribute="trailing" secondItem="r9I-It-yql" secondAttribute="trailing" id="onC-oj-Hiz"/>
+                            <constraint firstItem="Hog-uN-gI1" firstAttribute="top" secondItem="r9I-It-yql" secondAttribute="bottom" id="wlR-mB-FgU"/>
                         </constraints>
                     </view>
                     <connections>
@@ -73,7 +86,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g0V-nP-MNb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1751" y="-307"/>
+            <point key="canvasLocation" x="1825" y="-307"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Dee-Iz-FJP">
@@ -84,10 +97,10 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="4Wc-xH-XPF">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" red="0.11764705882352941" green="0.45098039215686275" blue="0.67450980392156867" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="barTintColor" red="0.1176470588" green="0.45098039220000002" blue="0.67450980390000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.11764705882352941" green="0.45098039215686275" blue="0.67450980392156867" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.1176470588" green="0.45098039220000002" blue="0.67450980390000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
-                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -97,8 +110,8 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bLn-iM-3yj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="325" y="-307"/>
+            <point key="canvasLocation" x="260" y="-307"/>
         </scene>
     </scenes>
-    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

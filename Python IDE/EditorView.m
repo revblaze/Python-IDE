@@ -14,11 +14,15 @@
 
 @implementation EditorView
 
+@synthesize textView;
+
 - (id) initWithCoder:(NSCoder *)aDecoder {
     if ((self = [super initWithCoder:aDecoder])) {
-        self.textView = [[SyntaxTextView alloc] initWithFrame:self.bounds];
-        self.textView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-        [self addSubview:self.textView];
+        textView.selectable = YES;
+        textView = [[SyntaxTextView alloc] initWithFrame:self.bounds];
+        textView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+        textView.font = [UIFont fontWithName:@"Menlo-Regular" size:14];
+        [self addSubview:textView];
     }
     return self;
 }

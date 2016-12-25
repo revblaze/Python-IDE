@@ -19,7 +19,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    consoleView.text = codeString;
+    self.consoleView.selectable = YES;
+    self.consoleView.text = codeString;
+    self.consoleView.font = [UIFont fontWithName:@"Menlo-Regular" size:12];
 }
 
 - (void)didReceiveMemoryWarning {
