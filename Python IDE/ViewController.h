@@ -22,6 +22,7 @@
 @property (nonatomic, strong) NSString *codeString;
 @property (assign, nonatomic) IBOutlet EditorView *editorView;
 @property (nonatomic, retain) BuildViewController *buildViewController;
+@property (strong, nonatomic) UIDocumentInteractionController * docExportController;
 
 - (void)saveFile;
 

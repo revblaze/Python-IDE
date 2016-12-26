@@ -24,21 +24,21 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(enterBackground:) name:UIApplicationDidEnterBackgroundNotification object:nil];
     
-    // Check if Code.txt exists
+    // Check if File.py exists
     NSString* documentsDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-    NSString *codeFile = [NSString stringWithFormat:@"%@/Code.txt", documentsDir];
+    NSString *codeFile = [NSString stringWithFormat:@"%@/File.py", documentsDir];
     BOOL fileExists = [[NSFileManager defaultManager] fileExistsAtPath:codeFile];
     
     NSLog(@"viewWillAppear");
     
     if (fileExists == true) {
-        // Code.txt does exist, continue to viewDidLoad
-        NSLog(@"Code.txt does exist");
+        // File.py does exist, continue to viewDidLoad
+        NSLog(@"File.py does exist");
     }
     
     else if (fileExists == false) {
-        // Code.txt does not exist, create the file
-        NSLog(@"Code.txt does not exist");
+        // File.py does not exist, create the file
+        NSLog(@"File.py does not exist");
         ViewController *viewController = [ViewController alloc];
         [viewController createFile];
     }
@@ -57,29 +57,27 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    // Load Code.txt
+    // Load File.py
     NSString* documentsDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-    NSString* codeFile = [documentsDir stringByAppendingPathComponent:@"Code.txt"];
+    NSString* codeFile = [documentsDir stringByAppendingPathComponent:@"File.py"];
     NSString *codeString = [NSString stringWithContentsOfFile:codeFile encoding:NSUTF8StringEncoding error:NULL];
     NSAttributedString *formattedCode = [[NSAttributedString alloc]  initWithString:codeString];
+    
+    // Format editor
     editorView.textView.attributedText = formattedCode;
     [editorView.textView setAttributedText:formattedCode];
     editorView.textView.selectable = YES;
+    editorView.textView.autocapitalizationType = UITextAutocapitalizationTypeNone;
+    editorView.textView.autocorrectionType = UITextAutocorrectionTypeNo;
     editorView.textView.font = [UIFont fontWithName:@"Menlo-Regular" size:13];
     tempCode = @"";
-    NSLog(@"Loaded Code.txt");
+    NSLog(@"Loaded File.py");
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
-    // Save text to Code.txt
-    codeString = editorView.textView.text;
-    NSString *documentsDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-    NSString *codeFile = [NSString stringWithFormat:@"%@/Code.txt", documentsDir];
-    [codeString writeToFile:codeFile
-                      atomically:NO
-                        encoding:NSStringEncodingConversionAllowLossy
-                           error:nil];
-    NSLog(@"Saved text to Code.txt");
+    // Save code to File.py
+    [self saveFile];
+    NSLog(@"Saved code to File.py");
 }
 
 - (void)enterBackground:(NSNotification *)notification{
@@ -88,27 +86,27 @@
 }
 
 - (void)saveFile {
-    // Save text to Code.txt
+    // Save code to File.py
     codeString = editorView.textView.text;
     NSString *documentsDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-    NSString *codeFile = [NSString stringWithFormat:@"%@/Code.txt", documentsDir];
+    NSString *codeFile = [NSString stringWithFormat:@"%@/File.py", documentsDir];
     [codeString writeToFile:codeFile
                       atomically:NO
                         encoding:NSStringEncodingConversionAllowLossy
                            error:nil];
-    NSLog(@"Saved text to Code.txt");
+    NSLog(@"Saved code to File.py");
 }
 
 - (void)createFile {
-    // Creates file Code.txt with print("Hello, world")
+    // Creates file File.py with print("Hello, world")
     NSString *documentsDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-    NSString *codeFile = [NSString stringWithFormat:@"%@/Code.txt", documentsDir];
+    NSString *codeFile = [NSString stringWithFormat:@"%@/File.py", documentsDir];
     NSString *codeString = @"print(\"Hello, world!\")\n";
     [codeString writeToFile:codeFile
               atomically:NO
                 encoding:NSStringEncodingConversionAllowLossy
                    error:nil];
-    NSLog(@"Created Code.txt");
+    NSLog(@"Created File.py");
 }
 
 - (void)dealloc {
@@ -169,9 +167,35 @@
         // Do nothing
     }
     
-    // Push Code.txt content to buildView
+    // Push File.py content to buildView
     BuildViewController *buildView = [segue destinationViewController];
     buildView.codeString = tempCode;
+}
+
+- (IBAction)exportFile:(id) sender {
+    // Save code to File.py
+    [self saveFile];
+    NSLog(@"Saved code to File.py");
+    NSLog(@"Preparing for export");
+    
+    // Export file using UIDocumentInteractionController
+    NSURL * myURL = [NSURL fileURLWithPath:[self getFilePath]];
+    _docExportController = [UIDocumentInteractionController interactionControllerWithURL:myURL];
+    if(![_docExportController presentOpenInMenuFromRect:[self.view frame] inView:self.view animated:YES]) {
+        UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"Error" message:@"You don't have a compatible app." preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction * action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+        [alert addAction:action];
+        [self presentViewController:alert animated:YES completion:nil];
+    }
+}
+
+- (NSString*)getFilePath{
+    
+    NSArray * paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString * documentDirectory = [paths objectAtIndex:0];
+    
+    NSString * fileName = [documentDirectory stringByAppendingString:@"/File.py"];
+    return fileName;
 }
 
 - (void)didReceiveMemoryWarning {
