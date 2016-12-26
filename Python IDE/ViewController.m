@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "NSString+AttributedStringConversion.h"
+#import "Tester.h"
 
 @interface ViewController ()
 
@@ -15,7 +16,7 @@
 
 @implementation ViewController
 
-@synthesize codeString, editorView, buildViewController;
+@synthesize tempCode, codeString, editorView, buildViewController;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -42,6 +43,11 @@
         [viewController createFile];
     }
     
+    // Create a new Python runtime
+    pyCore = [[PyCore alloc] init];
+    pyCore.delegate = self;
+    mode = 0;
+    
     // Attempt at getting the line numbered textView to work
     NSUInteger navBarHeight = CGRectGetHeight([UIApplication sharedApplication].statusBarFrame);
     UIEdgeInsets insets = editorView.textView.contentInset;
@@ -59,9 +65,9 @@
     editorView.textView.attributedText = formattedCode;
     [editorView.textView setAttributedText:formattedCode];
     editorView.textView.selectable = YES;
-    editorView.textView.font = [UIFont fontWithName:@"Menlo-Regular" size:12];
+    editorView.textView.font = [UIFont fontWithName:@"Menlo-Regular" size:13];
+    tempCode = @"";
     NSLog(@"Loaded Code.txt");
-    NSLog(@"String: %@", formattedCode);
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -73,7 +79,6 @@
                       atomically:NO
                         encoding:NSStringEncodingConversionAllowLossy
                            error:nil];
-    NSLog(@"String: %@", codeString);
     NSLog(@"Saved text to Code.txt");
 }
 
@@ -91,7 +96,6 @@
                       atomically:NO
                         encoding:NSStringEncodingConversionAllowLossy
                            error:nil];
-    NSLog(@"String: %@", codeString);
     NSLog(@"Saved text to Code.txt");
 }
 
@@ -99,7 +103,7 @@
     // Creates file Code.txt with print("Hello, world")
     NSString *documentsDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     NSString *codeFile = [NSString stringWithFormat:@"%@/Code.txt", documentsDir];
-    NSString *codeString = @"print(\"Hello, world!\")";
+    NSString *codeString = @"print(\"Hello, world!\")\n";
     [codeString writeToFile:codeFile
               atomically:NO
                 encoding:NSStringEncodingConversionAllowLossy
@@ -111,10 +115,63 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidEnterBackgroundNotification object:nil];
 }
 
+#pragma mark -
+#pragma mark Run Python code
+
+- (void)_appendStringToOutputView:(NSString *)string {
+    codeString = [codeString stringByAppendingFormat: string, @"%@\n"];
+}
+
+// Return PyCore callback
+- (void)print:(NSString *)string {
+    [self _appendStringToOutputView:string];
+    NSString *lineToAdd = (@"%@", string);
+    tempCode = [NSString stringWithFormat:@"%@\n%@", tempCode, lineToAdd];
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Run Python Compiler
+    [editorView.textView resignFirstResponder];
+    
+    Parser *parser = [[Parser alloc] initWithString:editorView.textView.text];
+    Suite *suite;
+    
+    @try {
+        suite = [parser parse_file];
+    }
+    
+    @catch (NSException *exception) {
+        [self _appendStringToOutputView:[NSString stringWithFormat:@"%@: %@", [exception name], [exception reason]]];
+        return;
+    }
+    
+    @finally {
+        // Do nothing
+    }
+    
+    if (mode) {
+        [self _appendStringToOutputView:[suite description]];
+        return;
+    }
+    
+    Frame *frame = [pyCore newInitialFrame];
+    
+    @try {
+        [suite evaluate:frame];
+    }
+    
+    @catch (NSException *exception) {
+        [self _appendStringToOutputView:[NSString stringWithFormat:@"%@: %@", [exception name], [exception reason]]];
+        return;
+    }
+    
+    @finally {
+        // Do nothing
+    }
+    
     // Push Code.txt content to buildView
     BuildViewController *buildView = [segue destinationViewController];
-    buildView.codeString = editorView.textView.text;
+    buildView.codeString = tempCode;
 }
 
 - (void)didReceiveMemoryWarning {

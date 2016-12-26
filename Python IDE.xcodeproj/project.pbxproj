@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D13E1DD1E1085E80093BD1A /* Parser.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D13E1DC1E1085E80093BD1A /* Parser.m */; };
+		4D13E1E01E1089250093BD1A /* Token.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D13E1DF1E1089250093BD1A /* Token.m */; };
+		4D13E1E31E108A9B0093BD1A /* AST.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D13E1E21E108A9B0093BD1A /* AST.m */; };
+		4D13E1E61E108D580093BD1A /* Runtime.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D13E1E51E108D580093BD1A /* Runtime.m */; };
+		4D13E1E91E108EE90093BD1A /* Tester.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D13E1E81E108EE90093BD1A /* Tester.m */; };
 		4D30913E1C193F0F005CBDF5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D30913D1C193F0F005CBDF5 /* CoreGraphics.framework */; };
 		4D3091401C193F25005CBDF5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D30913F1C193F25005CBDF5 /* Foundation.framework */; };
 		4D3091421C193F38005CBDF5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D3091411C193F38005CBDF5 /* UIKit.framework */; };
@@ -24,6 +29,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4D13E1DB1E1085E80093BD1A /* Parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Parser.h; sourceTree = "<group>"; };
+		4D13E1DC1E1085E80093BD1A /* Parser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Parser.m; sourceTree = "<group>"; };
+		4D13E1DE1E1089250093BD1A /* Token.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Token.h; sourceTree = "<group>"; };
+		4D13E1DF1E1089250093BD1A /* Token.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Token.m; sourceTree = "<group>"; };
+		4D13E1E11E108A9B0093BD1A /* AST.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AST.h; sourceTree = "<group>"; };
+		4D13E1E21E108A9B0093BD1A /* AST.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AST.m; sourceTree = "<group>"; };
+		4D13E1E41E108D580093BD1A /* Runtime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Runtime.h; sourceTree = "<group>"; };
+		4D13E1E51E108D580093BD1A /* Runtime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Runtime.m; sourceTree = "<group>"; };
+		4D13E1E71E108EE90093BD1A /* Tester.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tester.h; sourceTree = "<group>"; };
+		4D13E1E81E108EE90093BD1A /* Tester.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tester.m; sourceTree = "<group>"; };
 		4D30913D1C193F0F005CBDF5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		4D30913F1C193F25005CBDF5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4D3091411C193F38005CBDF5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -63,6 +78,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4D13E1DA1E1085B90093BD1A /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				4D13E1DB1E1085E80093BD1A /* Parser.h */,
+				4D13E1DC1E1085E80093BD1A /* Parser.m */,
+				4D13E1DE1E1089250093BD1A /* Token.h */,
+				4D13E1DF1E1089250093BD1A /* Token.m */,
+				4D13E1E11E108A9B0093BD1A /* AST.h */,
+				4D13E1E21E108A9B0093BD1A /* AST.m */,
+				4D13E1E41E108D580093BD1A /* Runtime.h */,
+				4D13E1E51E108D580093BD1A /* Runtime.m */,
+				4D13E1E71E108EE90093BD1A /* Tester.h */,
+				4D13E1E81E108EE90093BD1A /* Tester.m */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
 		4D3091511C194203005CBDF5 /* SyntaxTextView */ = {
 			isa = PBXGroup;
 			children = (
@@ -107,6 +139,7 @@
 				4D832C241C16864D00913CE7 /* Assets.xcassets */,
 				4D832C261C16864D00913CE7 /* LaunchScreen.storyboard */,
 				4D832C291C16864D00913CE7 /* Info.plist */,
+				4D13E1DA1E1085B90093BD1A /* Core */,
 				4D3091511C194203005CBDF5 /* SyntaxTextView */,
 				4D832C181C16864D00913CE7 /* Supporting Files */,
 			);
@@ -195,13 +228,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D13E1E31E108A9B0093BD1A /* AST.m in Sources */,
 				4D30915D1C1947C1005CBDF5 /* NSString+AttributedStringConversion.m in Sources */,
+				4D13E1E01E1089250093BD1A /* Token.m in Sources */,
 				4D832C411C169B0100913CE7 /* BuildViewController.m in Sources */,
+				4D13E1E61E108D580093BD1A /* Runtime.m in Sources */,
 				4D3091541C19425F005CBDF5 /* SyntaxTextView.m in Sources */,
 				4D832C201C16864D00913CE7 /* ViewController.m in Sources */,
 				4D832C1D1C16864D00913CE7 /* AppDelegate.m in Sources */,
 				4D30915A1C194401005CBDF5 /* EditorView.m in Sources */,
 				4D3091571C19432D005CBDF5 /* LineNumberLayoutManager.m in Sources */,
+				4D13E1E91E108EE90093BD1A /* Tester.m in Sources */,
+				4D13E1DD1E1085E80093BD1A /* Parser.m in Sources */,
 				4D832C1A1C16864D00913CE7 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

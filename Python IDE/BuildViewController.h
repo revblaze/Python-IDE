@@ -11,6 +11,7 @@
 @interface BuildViewController : UIViewController
 
 @property (nonatomic, strong) NSString *codeString;
+@property (nonatomic, strong) NSString *consoleCode;
 @property (nonatomic, retain) IBOutlet UITextView *consoleView;
 
 @end

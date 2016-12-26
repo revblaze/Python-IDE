@@ -20,7 +20,6 @@
     if ((self = [super initWithCoder:aDecoder])) {
         textView.selectable = YES;
         textView = [[SyntaxTextView alloc] initWithFrame:self.bounds];
-        textView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         textView.font = [UIFont fontWithName:@"Menlo-Regular" size:14];
         [self addSubview:textView];
     }

@@ -10,9 +10,15 @@
 #import "AppDelegate.h"
 #import "EditorView.h"
 #import "BuildViewController.h"
+#import "Parser.h"
+#import "Runtime.h"
 
-@interface ViewController : UIViewController <UITextViewDelegate>
+@interface ViewController : UIViewController <UITextViewDelegate, PyCoreDelegate> {
+    NSInteger mode;
+    PyCore *pyCore;
+}
 
+@property (nonatomic, strong) NSString *tempCode;
 @property (nonatomic, strong) NSString *codeString;
 @property (assign, nonatomic) IBOutlet EditorView *editorView;
 @property (nonatomic, retain) BuildViewController *buildViewController;

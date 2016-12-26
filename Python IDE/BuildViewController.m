@@ -7,6 +7,9 @@
 //
 
 #import "BuildViewController.h"
+#import "ViewController.h"
+
+@class ViewController;
 
 @interface BuildViewController ()
 
@@ -14,14 +17,36 @@
 
 @implementation BuildViewController
 
-@synthesize codeString, consoleView;
+@synthesize codeString, consoleCode, consoleView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.title = @"Console";
+    
+    
+    // Setup consoleView
     self.consoleView.selectable = YES;
-    self.consoleView.text = codeString;
-    self.consoleView.font = [UIFont fontWithName:@"Menlo-Regular" size:12];
+    self.consoleView.editable = NO;
+    self.consoleView.font = [UIFont fontWithName:@"Menlo-Regular" size:14];
+    
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    // Preparation for saved console history
+    if (![consoleCode isEqual: @""]) {
+        consoleCode = @"";
+        
+        // consoleCode = [NSString stringWithFormat:@"%@\n%@", codeString, consoleCode];
+        
+        consoleCode = [codeString stringByAppendingString: consoleCode];
+        
+        // consoleCode = [@">>>" stringByAppendingString: consoleCode];
+        
+        consoleCode = [consoleCode stringByReplacingOccurrencesOfString: @"\n" withString:@"\n>>> "];
+        self.consoleView.text = consoleCode;
+    }
 }
 
 - (void)didReceiveMemoryWarning {

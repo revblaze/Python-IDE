@@ -44,8 +44,7 @@
 }
 
 - (void) drawRect:(CGRect)rect {
-    
-    //  Drag the line number gutter background.  The line numbers them selves are drawn by LineNumberLayoutManager.
+    //  Draw the line number gutter background
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGRect bounds = self.bounds;
     
