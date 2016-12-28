@@ -21,6 +21,8 @@
         textView.selectable = YES;
         textView = [[SyntaxTextView alloc] initWithFrame:self.bounds];
         textView.font = [UIFont fontWithName:@"Menlo-Regular" size:14];
+        textView.showsHorizontalScrollIndicator = NO;
+        textView.showsVerticalScrollIndicator = NO;
         [self addSubview:textView];
     }
     return self;

@@ -24,6 +24,14 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(enterBackground:) name:UIApplicationDidEnterBackgroundNotification object:nil];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWasShown:)
+                                                 name:UIKeyboardDidShowNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillBeHidden:)
+                                                 name:UIKeyboardWillHideNotification object:nil];
+    
     // Check if File.py exists
     NSString* documentsDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     NSString *codeFile = [NSString stringWithFormat:@"%@/File.py", documentsDir];
@@ -196,6 +204,19 @@
     
     NSString * fileName = [documentDirectory stringByAppendingString:@"/File.py"];
     return fileName;
+}
+
+- (void)keyboardWasShown:(NSNotification*)notification {
+    NSDictionary* info = [notification userInfo];
+    CGSize keyboardSize = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
+    
+    self.editorView.textView.contentInset = UIEdgeInsetsMake(0, 0, keyboardSize.height, 0);
+    self.editorView.textView.scrollIndicatorInsets = self.editorView.textView.contentInset;
+}
+
+- (void)keyboardWillBeHidden:(NSNotification*)notification {
+    self.editorView.textView.contentInset = UIEdgeInsetsZero;
+    self.editorView.textView.scrollIndicatorInsets = UIEdgeInsetsZero;
 }
 
 - (void)didReceiveMemoryWarning {
