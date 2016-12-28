@@ -38,7 +38,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Python IDE" id="1Uy-id-0bB">
                         <barButtonItem key="backBarButtonItem" title="Editor" id="J7o-IP-fqS"/>
-                        <barButtonItem key="leftBarButtonItem" title="Export" id="kpZ-eJ-h7s">
+                        <barButtonItem key="leftBarButtonItem" image="Share" id="kpZ-eJ-h7s">
                             <connections>
                                 <action selector="exportFile:" destination="BYZ-38-t0r" id="d2F-yx-abI"/>
                             </connections>
@@ -119,5 +119,8 @@
             <point key="canvasLocation" x="260" y="-307"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Share" width="22" height="23"/>
+    </resources>
     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
