@@ -21,10 +21,10 @@
     LineNumberLayoutManager* lm = [[LineNumberLayoutManager alloc] init];
     NSTextContainer* tc = [[NSTextContainer alloc] initWithSize:CGSizeMake(CGFLOAT_MAX, CGFLOAT_MAX)];
     
-    //  Wrap text to the text view's frame
+    // Wrap text to the text view's frame
     tc.widthTracksTextView = YES;
     
-    //  Exclude the line number gutter from the display area available for text display.
+    // Exclude the line number gutter from the display area available for text display.
     tc.exclusionPaths = @[[UIBezierPath bezierPathWithRect:CGRectMake(0.0, 0.0, 40.0, CGFLOAT_MAX)]];
     
     [lm addTextContainer:tc];
@@ -44,7 +44,7 @@
 }
 
 - (void) drawRect:(CGRect)rect {
-    //  Draw the line number gutter background
+    // Draw the line number gutter background
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGRect bounds = self.bounds;
     
