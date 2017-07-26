@@ -1,4 +1,4 @@
-Test out the new prototype of Python IDE 2: http://goo.gl/2aJpT9
+Test out the new Python IDE 2 prototype: http://goo.gl/2aJpT9
 
 <img src="Cover.png" width="860" />
 
