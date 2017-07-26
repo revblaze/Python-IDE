@@ -1,3 +1,5 @@
+Test out the new prototype of Python IDE 2: goo.gl/2aJpT9
+
 <img src="Cover.png" width="860" />
 
 Python IDE for iOS is a free, open source project that is my attempt at recreating IDLE for mobile devices. Notice how I said IDLE and not PyCharm or some other advanced IDE. This is my attempt at creating a cost-effective simulation of the Python programming language without the use of external servers/compilers.
