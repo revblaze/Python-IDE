@@ -14,11 +14,11 @@ Python IDE for iOS is a free, open source project that is my attempt at recreati
 - We'll add more as we go
 
 ## Requirements
-- Requires iOS 8.0 or later
+- Requires iOS 10.2 or later
 
 ## MIT License
 
-Copyright © 2017 Justin Bush. All rights reserved.
+Copyright © 2020 Justin Bush. All rights reserved.
 
 ```
 Permission is hereby granted, free of charge, to any person obtaining a copy
