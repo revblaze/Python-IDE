@@ -1,5 +1,9 @@
 <img src="Cover.png" width="860" />
 
+The archived version of this project (iOS 10) is available in the [obj-c branch](https://github.com/revblaze/Python-IDE/tree/obj-c).
+
+-----
+
 **Update (03/03/2021):** Hello again! It's been a few years – roughly six – since anything major has happened with this project. I started this back in first year after taking my first Python class and, to be honest with you, I don't remember a whole lot about it.
 
 I think a Swift rewrite is in order – with added compatibility for macOS(?). I know that the whole point of this little project is to PoC a synthetic compiler on a device with minimal resources, but I can already think of a number of useful applications that can be utilized at the desktop level.
