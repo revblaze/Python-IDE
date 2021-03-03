@@ -1,6 +1,14 @@
-Test out the new Python IDE 2 prototype: http://goo.gl/2aJpT9
-
 <img src="Cover.png" width="860" />
+
+**Update (03/03/2021):** Hello again! It's been a few years – roughly six – since anything major has happened with this project. I started this back in first year after taking my first Python class and, to be honest with you, I don't remember a whole lot about it.
+
+I think a Swift rewrite is in order – with added compatibility for macOS(?). I know that the whole point of this little project is to PoC a synthetic compiler on a device with minimal resources, but I can already think of a number of useful applications that can be utilized at the desktop level.
+
+We'll have to see after I review the current state of the code. I may also fool around with some server-side deployment as well; however, I'll likely publish that under a different repository.
+
+# Python IDE
+
+Test out the new Python IDE 2 prototype: http://goo.gl/2aJpT9 (2017)
 
 Python IDE for iOS is a free, open source project that is my attempt at recreating IDLE for mobile devices. Notice how I said IDLE and not PyCharm or some other advanced IDE. This is my attempt at creating a cost-effective simulation of the Python programming language without the use of external servers/compilers.
 
